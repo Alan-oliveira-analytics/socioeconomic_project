@@ -17,7 +17,7 @@ url_education = f'https://servicodados.ibge.gov.br/api/v1/paises/{latin_america}
 url_health = f'https://servicodados.ibge.gov.br/api/v1/paises/{latin_america}/indicadores/{health_expenditures}'
 
 
-def extract_gdp(url: str, output_file: str) -> list:
+def extract_data(url: str, output_file: str) -> list:
 
     response = requests.get(url)
 
@@ -46,9 +46,9 @@ def extract_gdp(url: str, output_file: str) -> list:
     
 
 def main():
-    extract_gdp(url_gdp, 'gdp_per_capta.json')
-    extract_gdp(url_education, 'education_expenditures.json')
-    extract_gdp(url_health, 'health_expenditures.json')
+    extract_data(url_gdp, 'gdp_per_capta.json')
+    extract_data(url_education, 'education_expenditures.json')
+    extract_data(url_health, 'health_expenditures.json')
 
 
 
