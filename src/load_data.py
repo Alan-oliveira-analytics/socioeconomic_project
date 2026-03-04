@@ -16,7 +16,7 @@ user = os.getenv("user")
 password = os.getenv("password")
 database = os.getenv("database")
 
-host = "host.docker.internal"
+host = "localhost"
 
 def get_engine(): # creating the database engine using the credentials from the .env file
     return create_engine(
@@ -36,6 +36,7 @@ def load_socioeconomic_data(table_name: str, df: pd.DataFrame):
 
 
     df_check = pd.read_sql(f'SELECT * FROM {table_name}', con=engine)
+    print(df_check.head())
     print(f"Data loaded into {table_name} successfully. Number of records: {len(df_check)}")
 
 
