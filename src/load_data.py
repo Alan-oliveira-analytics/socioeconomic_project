@@ -16,7 +16,7 @@ user = os.getenv("user")
 password = os.getenv("password")
 database = os.getenv("database")
 
-host = "localhost"
+host = "host.docker.internal"
 
 def get_engine(): # creating the database engine using the credentials from the .env file
     return create_engine(

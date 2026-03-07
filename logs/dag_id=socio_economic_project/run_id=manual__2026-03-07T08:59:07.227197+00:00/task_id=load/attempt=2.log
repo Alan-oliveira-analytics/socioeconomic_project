@@ -1,0 +1,21 @@
+{"timestamp":"2026-03-07T09:04:10.128677Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-07T09:04:10.129146Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/economic_dag.py","logger":"airflow.models.dagbag.BundleDagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-07T09:04:10.143756Z","level":"warning","event":"The `airflow.decorators.dag` attribute is deprecated. Please use `'airflow.sdk.dag'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/economic_dag.py","lineno":2,"logger":"py.warnings"}
+{"timestamp":"2026-03-07T09:04:10.143806Z","level":"warning","event":"The `airflow.decorators.task` attribute is deprecated. Please use `'airflow.sdk.task'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/economic_dag.py","lineno":2,"logger":"py.warnings"}
+{"timestamp":"2026-03-07T09:04:10.152458Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.155559Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.155638Z","level":"info","event":"Current task name:load","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.155692Z","level":"info","event":"Dag name:socio_economic_project","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.235850Z","level":"info","event":"     country  ... public_health_expenditure","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.235977Z","level":"info","event":"0  Argentina  ...                      4.50","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.236039Z","level":"info","event":"1  Argentina  ...                      4.59","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.236092Z","level":"info","event":"2  Argentina  ...                      4.03","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.236151Z","level":"info","event":"3  Argentina  ...                      3.77","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.236205Z","level":"info","event":"4  Argentina  ...                      3.74","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.236262Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.236313Z","level":"info","event":"[5 rows x 6 columns]","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.236372Z","level":"info","event":"Data loaded into socioeconomic_data successfully. Number of records: 422","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.236018Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator","filename":"python.py","lineno":230}
+{"timestamp":"2026-03-07T09:04:10.244254Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.244356Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-07T09:04:10.244473Z","level":"info","event":"Task operator:<Task(_PythonDecoratedOperator): load>","logger":"task.stdout"}

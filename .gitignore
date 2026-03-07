@@ -12,3 +12,4 @@ wheels/
 
 # dados sensíveis
 /config
+.env

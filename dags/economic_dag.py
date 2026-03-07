@@ -7,7 +7,7 @@ import sys, os
 sys.path.insert(0, '/opt/airflow/src')
 
 from extract_data import extract_data
-from transform_data import transform_data
+from transform_data import main
 from load_data import load_socioeconomic_data
 from dotenv import load_dotenv
 
@@ -52,7 +52,7 @@ def economic_pipeline():
 
     @task
     def transform():
-        df = transform_data()
+        df = main()
         df.to_parquet('/opt/airflow/data/socio_economic_data.parquet', index=False)
 
     @task
