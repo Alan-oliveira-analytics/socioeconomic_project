@@ -13,3 +13,4 @@ wheels/
 # dados sensíveis
 /config
 .env
+/dashboard/config.py
