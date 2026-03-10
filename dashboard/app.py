@@ -2,6 +2,7 @@ import streamlit as st
 from queries import get_indicators
 
 # ======= PAGE CONFIG =========
+
 st.set_page_config(
     page_title="LATAM Socioeconomic Indicators",
     layout="wide"
@@ -11,6 +12,14 @@ st.title("Latin America Socioeconomic Indicators")
 
 
 df = get_indicators()
+
+# ======= INDICATORS =========
+
+a, b, c = st.columns(3)
+a.metric(label="AVG GDP per capita", value=f"R$ {df['gdp_per_capita'].mean():,.2f}", border=True)
+b.metric(label="AVG Education Spending", value=f"R$ {df['public_education_expenditure'].mean():,.2f}", border=True)
+c.metric(label="AVG Health Spending", value=f"R$ {df['public_health_expenditure'].mean():,.2f}", border=True)
+
 
 
 # ======= METRIC OVER TIME =========
@@ -51,8 +60,7 @@ with col_control:
 y_option = metrics[metric_name]
 
 with col_chart:
-    st.subheader(f"{metric_name} over time")
-
+    st.text(f"{metric_name} over time")
     st.line_chart(
         df_filter,
         x="year",
@@ -60,10 +68,17 @@ with col_chart:
         color="country_id"
     )
 
+st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+st.markdown("<hr style='border: none; border-top: 1px solid rgba(107, 114, 128, 0.35); margin: 0 0 1.5rem 0;'>", unsafe_allow_html=True)
+
+
 
 # ======= CORRELATION GRAPHICS =========
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns([1, 1, 0.4], gap="large")
+
+corr_edu = df["public_education_expenditure"].corr(df["gdp_per_capita"])
+corr_health = df["public_health_expenditure"].corr(df["gdp_per_capita"])
 
 with col1:
     st.text("Is there a correlation between education and GDP?")
@@ -81,6 +96,36 @@ with col2:
         df,
         x="public_health_expenditure",
         y="gdp_per_capita",
+        y_label="GDP",
+        x_label="Health Spending"
+    )
+
+with col3:
+    # Offset the metric cards so the pair sits centered relative to the charts.
+    st.markdown("<div style='height: 70px;'></div>", unsafe_allow_html=True)
+
+    st.metric(
+        label="Education vs GDP Correlation",
+        value=f"{corr_edu:.2f}",
+        border=True
+    )
+
+    st.metric(
+        label="Health vs GDP Correlation",
+        value=f"{corr_health:.2f}",
+        border=True
+    )
+
+# row dataset
+
+st.markdown("<div style='height: 1.5rem;'></div>", unsafe_allow_html=True)
+st.markdown("<hr style='border: none; border-top: 1px solid rgba(107, 114, 128, 0.35); margin: 0 0 1.5rem 0;'>", unsafe_allow_html=True)
+
+st.text("Is there a correlation between health spending and education spending?")
+st.scatter_chart(
+        df,
+        x="public_health_expenditure",
+        y="public_education_expenditure",
         y_label="GDP",
         x_label="Health Spending"
     )
