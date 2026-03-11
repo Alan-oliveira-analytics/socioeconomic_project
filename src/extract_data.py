@@ -19,7 +19,11 @@ url_health = f'https://servicodados.ibge.gov.br/api/v1/paises/{latin_america}/in
 
 def extract_data(url: str, output_file: str) -> list:
 
-    response = requests.get(url)
+    params = {
+        "lang": "EN"
+    }
+
+    response = requests.get(url, params=params)
 
     data = response.json()
 

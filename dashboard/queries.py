@@ -13,5 +13,11 @@ def get_indicators():
     df = pd.read_sql(query, conn)
 
     release_connection(conn)
+    
+    df.to_parquet("data/socioeconomic_data.parquet", index=False)
+
 
     return df
+
+
+get_indicators()
