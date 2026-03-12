@@ -1,23 +1,23 @@
-import pandas as pd
-from database import get_connection, release_connection
+# import pandas as pd
+# from database import get_connection, release_connection
 
 
-def get_indicators():
-    conn = get_connection()
+# def get_indicators():
+#     conn = get_connection()
 
-    query = """
-    SELECT *
-    FROM socioeconomic_data
-    """
+#     query = """
+#     SELECT *
+#     FROM socioeconomic_data
+#     """
 
-    df = pd.read_sql(query, conn)
+#     df = pd.read_sql(query, conn)
 
-    release_connection(conn)
+#     release_connection(conn)
     
-    df.to_parquet("data/socioeconomic_data.parquet", index=False)
+#     df.to_parquet("data/socioeconomic_data.parquet", index=False)
 
 
-    return df
+#     return df
 
 
-get_indicators()
+# get_indicators()
