@@ -95,7 +95,7 @@ Main analyses include:
 The application can be accessed through the public link:
 
 ```
-[Dashboard URL]
+https://socioeconomicproject.streamlit.app
 ```
 
 ---
